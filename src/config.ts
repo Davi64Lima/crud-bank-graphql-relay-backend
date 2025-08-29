@@ -1,6 +1,6 @@
 import * as path from "path";
 
-import dotenvSafe from "dotenv-safe";
+import * as dotenvSafe from "dotenv-safe";
 
 const cwd = process.cwd();
 

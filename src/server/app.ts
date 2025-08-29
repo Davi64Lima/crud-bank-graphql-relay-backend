@@ -1,9 +1,9 @@
 import Koa from "koa";
-import bodyParser from "koa-bodyparser";
-import cors from "kcors";
+import * as bodyParser from "koa-bodyparser";
+import * as cors from "kcors";
 import { graphqlHTTP } from "koa-graphql";
-import Router from "koa-router";
-import logger from "koa-logger";
+import * as Router from "koa-router";
+import * as logger from "koa-logger";
 import { schema } from "schema/schema";
 
 const app = new Koa();
