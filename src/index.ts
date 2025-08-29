@@ -1,23 +1,15 @@
-import { bodyParser } from "@koa/bodyparser";
-import * as Koa from "koa";
+import * as http from "http";
 
-const app = new Koa();
-app.use(
-  bodyParser({
-    detectJSON(ctx) {
-      return /\.json$/i.test(ctx.path);
-    },
-    onError(err, ctx) {
-      console.error(
-        `body parse error: ${err} on ${ctx.path} with body: ${ctx.request.body}`
-      );
-      ctx.throw(422, "body parse error");
-    },
-  })
-);
+import { app } from "./server/app";
+import { config } from "./config";
+import { connectDb } from "./db";
 
-app.use(async (ctx) => {
-  ctx.body = ctx.request.body;
-});
+(async () => {
+  await connectDb();
 
-app.listen(4000);
+  const server = http.createServer(app.callback());
+
+  server.listen(config.PORT, () => {
+    console.log(`Server running on port:${config.PORT}`);
+  });
+})();
