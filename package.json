@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon"
+    "start": "nodemon",
+    "seed": "ts-node -r tsconfig-paths/register src/scripts/seed.ts",
+    "dev": "nodemon",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
