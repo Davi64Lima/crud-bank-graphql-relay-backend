@@ -14,6 +14,9 @@ importers:
       '@types/node':
         specifier: ^24.3.0
         version: 24.3.0
+      dataloader:
+        specifier: ^2.2.3
+        version: 2.2.3
       dotenv-safe:
         specifier: ^9.1.0
         version: 9.1.0(dotenv@17.2.1)
@@ -245,6 +248,9 @@ packages:
 
   create-require@1.1.1:
     resolution: {integrity: sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==}
+
+  dataloader@2.2.3:
+    resolution: {integrity: sha512-y2krtASINtPFS1rSDjacrFgn1dcUuoREVabwlOGOe4SdxenREqwjwjElAdwvbGM7kgZz9a3KVicWR7vcz8rnzA==}
 
   debug@4.4.1:
     resolution: {integrity: sha512-KcKCqiftBJcZr++7ykoDIEwSa3XWowTfNPo92BYxjXiyYEVrUQh2aLyhxBCwww+heortUFxEJYcRzosstTEBYQ==}
@@ -963,6 +969,8 @@ snapshots:
   copy-to@2.0.1: {}
 
   create-require@1.1.1: {}
+
+  dataloader@2.2.3: {}
 
   debug@4.4.1(supports-color@5.5.0):
     dependencies:

@@ -16,6 +16,7 @@
   "dependencies": {
     "@koa/cors": "^5.0.0",
     "@types/node": "^24.3.0",
+    "dataloader": "^2.2.3",
     "dotenv-safe": "^9.1.0",
     "graphql": "^16.11.0",
     "kcors": "^2.2.2",
