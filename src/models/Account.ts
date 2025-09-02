@@ -55,7 +55,6 @@ const AccountSchema = new Schema<IAccount>(
 );
 
 // Índices para performance
-AccountSchema.index({ publicId: 1 });
 AccountSchema.index({ createdAt: -1 });
 
 // Método para verificar se a conta tem saldo suficiente

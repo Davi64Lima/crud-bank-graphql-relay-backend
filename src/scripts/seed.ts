@@ -16,13 +16,13 @@ const seedData = async () => {
         balance: 1000.0,
       },
       {
-        publicId: "acc_002", 
+        publicId: "acc_002",
         userId: "user_002",
         balance: 2500.5,
       },
       {
         publicId: "acc_003",
-        userId: "user_003", 
+        userId: "user_003",
         balance: 750.25,
       },
       {
