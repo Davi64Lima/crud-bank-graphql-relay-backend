@@ -1,22 +1,16 @@
 import mongoose, { Document, Schema } from "mongoose";
+import { IAccount } from "./Account";
 
 export interface IUser extends Document {
-  id: string;
   email: string;
   name: string;
-  password: string;
+  accounts: IAccount[];
   createdAt: Date;
   updatedAt: Date;
 }
 
 const UserSchema = new Schema<IUser>(
   {
-    id: {
-      type: String,
-      required: true,
-      unique: true,
-      trim: true,
-    },
     email: {
       type: String,
       required: true,
@@ -28,11 +22,12 @@ const UserSchema = new Schema<IUser>(
       required: true,
       trim: true,
     },
-    password: {
-      type: String,
-      required: true,
-      trim: true,
-    },
+    accounts: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Account",
+      },
+    ],
   },
   {
     timestamps: true,

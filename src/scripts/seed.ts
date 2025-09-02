@@ -11,19 +11,23 @@ const seedData = async () => {
     // Criar contas de exemplo
     const accounts = await Account.create([
       {
-        name: "João Silva",
+        publicId: "acc_001",
+        userId: "user_001",
         balance: 1000.0,
       },
       {
-        name: "Maria Santos",
+        publicId: "acc_002", 
+        userId: "user_002",
         balance: 2500.5,
       },
       {
-        name: "Pedro Oliveira",
+        publicId: "acc_003",
+        userId: "user_003", 
         balance: 750.25,
       },
       {
-        name: "Ana Costa",
+        publicId: "acc_004",
+        userId: "user_004",
         balance: 3200.0,
       },
     ]);
@@ -32,7 +36,7 @@ const seedData = async () => {
     console.log("📋 Created accounts:");
     accounts.forEach((account) => {
       console.log(
-        `  - ${account.name}: R$ ${account.balance.toFixed(2)} (ID: ${
+        `  - ${account.publicId}: R$ ${account.balance.toFixed(2)} (ID: ${
           account._id
         })`
       );

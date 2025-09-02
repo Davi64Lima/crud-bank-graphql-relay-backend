@@ -3,7 +3,6 @@ import { ITransaction } from "./Transaction";
 import { IUser } from "./User";
 
 export interface IAccount extends Document {
-  id: string;
   publicId: string;
   userId: string;
   user: IUser;
@@ -20,12 +19,6 @@ export interface IAccount extends Document {
 
 const AccountSchema = new Schema<IAccount>(
   {
-    id: {
-      type: String,
-      required: true,
-      unique: true,
-      trim: true,
-    },
     publicId: {
       type: String,
       required: true,
@@ -62,7 +55,7 @@ const AccountSchema = new Schema<IAccount>(
 );
 
 // Índices para performance
-AccountSchema.index({ name: 1 });
+AccountSchema.index({ publicId: 1 });
 AccountSchema.index({ createdAt: -1 });
 
 // Método para verificar se a conta tem saldo suficiente
