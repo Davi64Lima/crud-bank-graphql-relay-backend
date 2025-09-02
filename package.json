@@ -19,6 +19,7 @@
     "dataloader": "^2.2.3",
     "dotenv-safe": "^9.1.0",
     "graphql": "^16.11.0",
+    "graphql-relay": "^0.10.2",
     "kcors": "^2.2.2",
     "koa": "^3.0.1",
     "koa-bodyparser": "^4.4.1",
