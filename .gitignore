@@ -1,2 +1,6 @@
 .env
 node_modules
+
+# Development planning (private)
+SCRUM.md
+PROJECT_STATUS.md
