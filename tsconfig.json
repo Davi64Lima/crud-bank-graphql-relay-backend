@@ -5,6 +5,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
+    "ignoreDeprecations": "6.0",
     "lib": ["es2017"],
     "types": ["node"],
     "outDir": "./dist",

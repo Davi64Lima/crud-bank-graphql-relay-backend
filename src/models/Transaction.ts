@@ -7,6 +7,7 @@ export enum TransactionStatus {
 }
 
 export interface ITransaction extends Document {
+  id: string;
   from: Types.ObjectId;
   to: Types.ObjectId;
   amount: number;

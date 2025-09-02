@@ -5,12 +5,11 @@ import { Account } from "models/Account";
 export const createAccountMutation = {
   type: AccountType,
   args: {
-    user: { type: new GraphQLNonNull(GraphQLString) },
+    userId: { type: new GraphQLNonNull(GraphQLString) },
   },
-  resolve: (_, { user }) => {
+  resolve: (_, { userId }) => {
     const newAccount = new Account({
-      user,
-      balance: 0,
+      userId,
     });
     return newAccount.save();
   },

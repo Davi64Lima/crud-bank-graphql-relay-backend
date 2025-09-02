@@ -1,3 +1,4 @@
+import { globalIdField } from "graphql-relay";
 import mongoose, { Document, Schema } from "mongoose";
 import { ITransaction } from "./Transaction";
 import { IUser } from "./User";
@@ -5,9 +6,8 @@ import { IUser } from "./User";
 export interface IAccount extends Document {
   publicId: string;
   userId: string;
-  user: IUser;
   balance: number;
-  transactions: ITransaction[];
+  transactions: String[];
   createdAt: Date;
   updatedAt: Date;
 
@@ -24,22 +24,17 @@ const AccountSchema = new Schema<IAccount>(
       required: true,
       unique: true,
       trim: true,
+      default: () => new mongoose.Types.ObjectId().toHexString(),
     },
     userId: {
       type: String,
       required: true,
       trim: true,
     },
-    user: {
-      type: Schema.Types.ObjectId,
-      ref: "User",
-      required: true,
-    },
     balance: {
       type: Number,
-      required: true,
       default: 0,
-      min: 0, // Não permite saldo negativo
+      min: 0,
     },
     transactions: [
       {
