@@ -25,7 +25,7 @@ export const AccountType = new GraphQLObjectType({
       resolve: (account) => account.userId,
     },
     user: {
-      type: UserType,
+      type: GraphQLString,
       resolve: (account) => account.user,
     },
     balance: {
@@ -46,9 +46,14 @@ export const AccountType = new GraphQLObjectType({
     transactions: {
       type: new GraphQLList(TransactionType),
       resolve: (accountId) => {
-        return Transaction.find({
+        const transactions = Transaction.find({
           $or: [{ from: accountId }, { to: accountId }],
+        }).catch((error) => {
+          console.error("Error fetching transactions:", error);
+          return [];
         });
+
+        return transactions;
       },
     },
     createdAt: {

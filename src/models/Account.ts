@@ -1,8 +1,14 @@
 import mongoose, { Document, Schema } from "mongoose";
+import { ITransaction } from "./Transaction";
+import { IUser } from "./User";
 
 export interface IAccount extends Document {
-  name: string;
+  id: string;
+  publicId: string;
+  userId: string;
+  user: IUser;
   balance: number;
+  transactions: ITransaction[];
   createdAt: Date;
   updatedAt: Date;
 
@@ -14,11 +20,27 @@ export interface IAccount extends Document {
 
 const AccountSchema = new Schema<IAccount>(
   {
-    name: {
+    id: {
+      type: String,
+      required: true,
+      unique: true,
+      trim: true,
+    },
+    publicId: {
+      type: String,
+      required: true,
+      unique: true,
+      trim: true,
+    },
+    userId: {
       type: String,
       required: true,
       trim: true,
-      maxlength: 100,
+    },
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
     },
     balance: {
       type: Number,
@@ -26,6 +48,12 @@ const AccountSchema = new Schema<IAccount>(
       default: 0,
       min: 0, // Não permite saldo negativo
     },
+    transactions: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Transaction",
+      },
+    ],
   },
   {
     timestamps: true, // Adiciona createdAt e updatedAt automaticamente

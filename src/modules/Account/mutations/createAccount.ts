@@ -1,12 +1,17 @@
 import { GraphQLNonNull, GraphQLString } from "graphql";
 import { AccountType } from "../Account";
+import { Account } from "models/Account";
 
 export const createAccountMutation = {
   type: AccountType,
   args: {
-    name: { type: new GraphQLNonNull(GraphQLString) },
+    user: { type: new GraphQLNonNull(GraphQLString) },
   },
-  resolve: (_, { name }) => {
-    return { id: "1", name, balance: 0 };
+  resolve: (_, { user }) => {
+    const newAccount = new Account({
+      user,
+      balance: 0,
+    });
+    return newAccount.save();
   },
 };
